@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Posts API</title>
+</head>
+<body>
+    <h1>Posts from JSONPlaceholder API</h1>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.body }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
