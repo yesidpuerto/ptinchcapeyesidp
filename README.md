@@ -36,4 +36,18 @@ Dado que el servicio se expone en el puerto 5000, se habilito este dentro de las
 
 Finalmente de manera temporal, para el proceso de CI/CD se habilito el puerto 22 para todo el mundo aunque claramente es una falla de seguridad, se tenia que aperturar por el uso de los agentes hospedados de Microsoft, esta regla se quito al momento de finalizar la ejecución y para mitigar este tipo de aperturas / vulnerabilidades, se implementa el uso de agentes autohospedados los cuales son manejados por el encargado o encargados de la organización de Azure DevOps, tanto para mitigar la vulnerabilidad de seguridad como para contar con mas de un agente que permita las canalizaciones en simultanea para diferentes proyectos dentro de la plataforma.
 
+Respecto a la estrategia de Git para el manejo del pipeline cabe resaltar que se tiene principalmente:
+
+Estructura de ramas: Utilizar una estructura de ramas clara y significativa en tu repositorio. Por ejemplo, se debe seguir el modelo de ramas "main" para la producción, "develop" para el desarrollo en curso, y ramas de características o tareas para el desarrollo de nuevas funcionalidades o corrección de errores.
+
+Commits significativos: Realizar commits frecuentes y significativos. Cada commit debe representar un cambio lógico y estar acompañado de un mensaje descriptivo que explique qué cambios se realizaron y por qué.
+
+Pull Requests (PR): Utiliza PR para integrar cambios en las ramas principales. Esto permite revisar y discutir los cambios antes de fusionarlos. Se debe garantizar que cada PR tenga una descripción clara del problema que resuelve y los cambios realizados.
+
+Revisión de código: Realizar revisiones de código regularmente para garantizar la calidad del código y el cumplimiento de los estándares establecidos.
+
+Uso de etiquetas (tags): Utilizar etiquetas para marcar versiones importantes de la aplicación. Esto facilita el seguimiento de las versiones y la implementación de versiones específicas en producción.
+
+Automatización: Automatizar tanto como sea posible el flujo de trabajo de Git. Utilizando herramientas y scripts para realizar tareas como construcción, pruebas y despliegue de manera automatizada y coherente.
+
 Con lo anterior, se realiza la Technical Test , agradeciendo su tiempo y la consideración de mi postulación para la vacante de DevOps Engineer en la compañía Inchcape Digital, aprecio sus comentarios y consideraciones. 
