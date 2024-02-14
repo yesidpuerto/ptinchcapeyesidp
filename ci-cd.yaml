@@ -1,0 +1,24 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+   
+- task: SSH@0
+  inputs:
+    sshEndpoint: 'pt-inchcape-yesidp'
+    runOptions: 'commands'
+    commands: |
+      echo "Realizando pull sobre la rama main"
+      cd /opt/pt-yesidp/ptinchcapeyesidp && git pull origin main
+      cd /opt/pt-yesidp/ptinchcapeyesidp && docker stop app-pt-yesidp
+      cd /opt/pt-yesidp/ptinchcapeyesidp && docker rm app-pt-yesidp
+      cd /opt/pt-yesidp/ptinchcapeyesidp && docker rmi my-flask-app:latest
+      cd /opt/pt-yesidp/ptinchcapeyesidp && docker build -t my-flask-app .
+      cd /opt/pt-yesidp/ptinchcapeyesidp && docker run -d --name app-pt-yesidp -p 5000:5000 my-flask-app
+      cd /opt/pt-yesidp/ptinchcapeyesidp && sleep 15
+      cd /opt/pt-yesidp/ptinchcapeyesidp && python3 test.py
+    failOnStdErr: false
+    readyTimeout: '20000'
